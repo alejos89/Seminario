@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de seguridad educativo - Misión de ciudadanía digital">
+  <title>Sistema de Seguridad</title>
+  
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <div class="container">
+  
+    <header class="header">
+      <div class="logo-line">
+        <span class="logo-brackets">[</span>
+        <span class="logo-text">
+          <img class="img-1" src="https://static.wixstatic.com/media/d1b317_4fe70cb66f9447c3991ad4cb8d7294d3~mv2.png/v1/fit/w_2500,h_1330,al_c/d1b317_4fe70cb66f9447c3991ad4cb8d7294d3~mv2.png" alt="logo">
+        </span>
+        <span class="logo-brackets">]</span>
+      </div>
+      <h1 class="title">PROTOCOLO DE ACCESO</h1>
+      <p class="subtitle">Solo si conoces el PIN podrás ingresar</p>
+    </header>
+
+  
+    <main class="main-content">
+
+      
+      <section id="pin-section" class="pin-section">
+        <label for="pin-input" class="pin-label">Ingresa el PIN</label>
+        
+        <div class="pin-input-wrapper">
+          <input 
+            type="password" 
+            id="pin-input" 
+            class="pin-input" 
+            maxlength="8" 
+            placeholder="________" 
+            inputmode="numeric" 
+            pattern="[0-9]*" 
+            autocomplete="off"
+            aria-describedby="pin-hint"
+          >
+          <button id="submit-btn" class="submit-btn" type="button">
+            VERIFICAR
+          </button>
+        </div>
+        
+        <p id="pin-hint" class="hint">Código de 8 dígitos numéricos</p>
+      </section>
+
+      
+      <section id="verify-section" class="verify-section hidden" aria-live="polite">
+        <p class="verify-text">Verificando...</p>
+        
+     
+        <div class="progress-container">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        
+     
+        <pre id="progress-bars" class="progress-bars" aria-hidden="true">█░░░░░░░░░</pre>
+        
+        <p class="verify-status" id="verify-status">Iniciando escaneo de credenciales...</p>
+      </section>
+
+     
+      <section id="error-section" class="error-section hidden" aria-live="assertive">
+        <div class="error-icon" aria-hidden="true">🔒</div>
+        <h2 class="error-title">ACCESO DENEGADO</h2>
+        <p class="error-message">PIN incorrecto. Intenta de nuevo.</p>
+        <button id="retry-btn" class="retry-btn" type="button">
+          REINTENTAR
+        </button>
+      </section>
+
+     
+      <section id="success-section" class="success-section hidden" aria-live="polite">
+        <div class="unlock-icon" aria-hidden="true">🔓</div>
+        <h2 class="success-title">ACCESO CONCEDIDO</h2>
+        <p class="mission-complete">MISIÓN COMPLETADA</p>
+        
+        
+        <div class="success-card">
+          <div class="card-header">
+            <span class="card-tag">MENSAJE DEL SISTEMA</span>
+          </div>
+          <p class="card-message">
+            Hoy demostraron que ser un buen ciudadano digital no depende de saber todas las respuestas, sino de tomar buenas decisiones cuando usamos internet. ¡Bien hecho :)!
+          </p>
+        </div>
+
+       
+        <div class="gif-container">
+          <img 
+            src="https://media1.tenor.com/m/GQAsycjoZG8AAAAC/scuba-scuba-cat.gif" 
+            alt="Animación de éxito" 
+            class="success-gif"
+          >
+        </div>
+       
+
+      </section>
+
+    </main>
+
+  
+    <footer class="footer">
+      <p class="footer-text">5to Diversificado en Computación • 2026</p>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
