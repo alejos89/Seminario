@@ -6,7 +6,6 @@
   <meta name="description" content="Sistema de seguridad educativo - Misión de ciudadanía digital">
   <title>Sistema de Seguridad</title>
   
- 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -14,11 +13,10 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  
   <div class="scanlines" aria-hidden="true"></div>
 
   <div class="container">
-  
+
     <header class="header">
       <div class="logo-line">
         <span class="logo-brackets">[</span>
@@ -31,10 +29,8 @@
       <p class="subtitle">Solo si conoces el PIN podrás ingresar</p>
     </header>
 
-  
     <main class="main-content">
 
-      
       <section id="pin-section" class="pin-section">
         <label for="pin-input" class="pin-label">Ingresa el PIN</label>
         
@@ -58,22 +54,18 @@
         <p id="pin-hint" class="hint">Código de 8 dígitos numéricos</p>
       </section>
 
-      
       <section id="verify-section" class="verify-section hidden" aria-live="polite">
         <p class="verify-text">Verificando...</p>
         
-     
         <div class="progress-container">
           <div id="progress-fill" class="progress-fill"></div>
         </div>
         
-     
         <pre id="progress-bars" class="progress-bars" aria-hidden="true">█░░░░░░░░░</pre>
         
         <p class="verify-status" id="verify-status">Iniciando escaneo de credenciales...</p>
       </section>
 
-     
       <section id="error-section" class="error-section hidden" aria-live="assertive">
         <div class="error-icon" aria-hidden="true">🔒</div>
         <h2 class="error-title">ACCESO DENEGADO</h2>
@@ -83,37 +75,54 @@
         </button>
       </section>
 
-     
       <section id="success-section" class="success-section hidden" aria-live="polite">
         <div class="unlock-icon" aria-hidden="true">🔓</div>
         <h2 class="success-title">ACCESO CONCEDIDO</h2>
         <p class="mission-complete">MISIÓN COMPLETADA</p>
-        
         
         <div class="success-card">
           <div class="card-header">
             <span class="card-tag">MENSAJE DEL SISTEMA</span>
           </div>
           <p class="card-message">
-            Hoy demostraron que ser un buen ciudadano digital no depende de saber todas las respuestas, sino de tomar buenas decisiones cuando usamos internet. ¡Bien hecho :)!
+            Hoy demostraron que ser un buen ciudadano digital no depende de saber todas las respuestas, sino de tomar buenas decisiones cuando usamos internet.
           </p>
         </div>
 
-       
-        <div class="gif-container">
-          <img 
-            src="https://media1.tenor.com/m/GQAsycjoZG8AAAAC/scuba-scuba-cat.gif" 
-            alt="Animación de éxito" 
-            class="success-gif"
-          >
+        <div class="badge-container">
+          <div class="badge">
+            <div class="badge-icon">🏅</div>
+            <div class="badge-text">
+              <span class="badge-title">LOGRO DESBLOQUEADO</span>
+              <span class="badge-name">Ciudadano Digital</span>
+            </div>
+          </div>
         </div>
-       
+
+        <div class="discover-area">
+          <button id="discover-btn" class="discover-btn" type="button">
+            <span class="discover-icon">👁</span>
+            <span class="discover-text">Toca para descubrir</span>
+          </button>
+
+          <div id="gif-container" class="gif-container hidden">
+            <img 
+              src="./assets/tenor.gif" 
+              alt="Animación de éxito" 
+              class="success-gif"
+            >
+
+            <p class="praise-message">
+              ¡Excelente trabajo! Demostraron inteligencia y buenas decisiones.  
+              Sigan así… el futuro digital necesita personas como ustedes :).
+            </p>
+          </div>
+        </div>
 
       </section>
 
     </main>
 
-  
     <footer class="footer">
       <p class="footer-text">5to Diversificado en Computación • 2026</p>
     </footer>

@@ -1,10 +1,4 @@
-/* =====================================================
-   SISTEMA DE SEGURIDAD - ESTILOS
-   Tema: Hacker / Terminal
-   Fácil de modificar: cada sección está comentada
-   ===================================================== */
 
-/* ---------- VARIABLES GLOBALES (cambia colores aquí) ---------- */
 :root {
   --bg-color: #0a0a0a;
   --bg-panel: #111111;
@@ -20,6 +14,7 @@
   --transition-fast: 0.2s ease;
   --transition-med: 0.4s ease;
 }
+
 
 /* ---------- RESET Y BASE ---------- */
 *,
@@ -104,22 +99,22 @@ body {
   align-items: center;
 }
 
-/* ===== ESTILO DEL LOGO / IMAGEN ===== */
+
 .img-1 {
-  width: 140px;           /* Tamaño base */
+  width: 140px;           
   max-width: 100%;
-  height: auto;           /* Mantiene proporción (importante) */
-  object-fit: contain;    /* Evita que se deforme */
+  height: auto;         
+  object-fit: contain;  
   display: block;
   
-  /* Efecto sutil de brillo verde para que combine con el tema hacker */
+  
   filter: drop-shadow(0 0 6px rgba(0, 255, 65, 0.35));
   
-  /* Suaviza un poco los bordes */
+ 
   border-radius: 4px;
 }
 
-/* En pantallas pequeñas el logo se hace un poco más chico */
+
 @media (max-width: 480px) {
   .img-1 {
     width: 110px;
@@ -142,7 +137,7 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* ---------- SECCIÓN PIN ---------- */
+
 .pin-section {
   background-color: var(--bg-panel);
   border: 1px solid var(--border-color);
@@ -224,7 +219,7 @@ body {
   color: var(--text-dim);
 }
 
-/* ---------- SECCIÓN VERIFICACIÓN ---------- */
+
 .verify-section {
   background-color: var(--bg-panel);
   border: 1px solid var(--border-color);
@@ -278,7 +273,7 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* ---------- SECCIÓN ERROR ---------- */
+
 .error-section {
   background-color: var(--bg-panel);
   border: 1px solid var(--text-error);
@@ -409,32 +404,187 @@ body {
   line-height: 1.6;
 }
 
-/* ---------- APARTADO DEL GIF (aparece al descubrir el código) ---------- */
-.gif-container {
+/* ---------- INSIGNIA / LOGRO ---------- */
+.badge-container {
   margin-top: 1.75rem;
   display: flex;
   justify-content: center;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: linear-gradient(135deg, #0d1a0d 0%, #111111 100%);
+  border: 1px solid var(--text-primary);
+  border-radius: 8px;
+  padding: 0.9rem 1.3rem;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+  animation: badgePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: 0.3s;
+}
+
+@keyframes badgePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.badge-icon {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.6));
+}
+
+.badge-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.badge-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.badge-name {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  text-shadow: 0 0 8px var(--glow-color);
+  letter-spacing: 0.05em;
+}
+
+/* ---------- BOTÓN "TOCA PARA DESCUBRIR" ---------- */
+.discover-area {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.discover-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: transparent;
+  border: 1px dashed var(--text-primary);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  padding: 0.85rem 1.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  animation: pulseBorder 2s infinite;
+}
+
+@keyframes pulseBorder {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 255, 65, 0);
+  }
+}
+
+.discover-btn:hover,
+.discover-btn:focus {
+  background-color: rgba(0, 255, 65, 0.12);
+  border-style: solid;
+  transform: scale(1.03);
+  outline: none;
+}
+
+.discover-icon {
+  font-size: 1.2rem;
+}
+
+/* ---------- GIF REVELADO + MENSAJE DE FELICITACIÓN ---------- */
+.gif-container {
+  display: flex;
+  flex-direction: column;       /* GIF arriba, mensaje abajo */
+  justify-content: center;
   align-items: center;
   width: 100%;
+  gap: 1.1rem;
+  opacity: 0;
+  transform: scale(0.7) translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gif-container.show {
+  opacity: 1;
+  transform: scale(1) translateY(0);
 }
 
 .success-gif {
   max-width: 100%;
-  width: 280px;               /* Tamaño base en escritorio */
+  width: 280px;
   height: auto;
-  border-radius: 6px;
-  border: 1px solid var(--text-dim);
-  box-shadow: 0 0 18px rgba(0, 255, 65, 0.25);
+  border-radius: 8px;
+  border: 1px solid var(--text-primary);
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.35);
   object-fit: cover;
   display: block;
 }
 
-/* Responsive: en móvil el GIF se adapta mejor */
+/* Mensaje de felicitación debajo del GIF */
+.praise-message {
+  max-width: 320px;
+  text-align: center;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  background-color: rgba(0, 255, 65, 0.06);
+  border: 1px solid rgba(0, 255, 65, 0.25);
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive */
 @media (max-width: 480px) {
   .success-gif {
     width: 100%;
     max-width: 260px;
   }
+
+  .praise-message {
+    font-size: 0.88rem;
+    max-width: 100%;
+  }
+
+  .badge {
+    padding: 0.75rem 1rem;
+  }
+
+  .badge-name {
+    font-size: 0.95rem;
+  }
+
+  .discover-btn {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.3rem;
+  }
+}
+
+/* ---------- CONFETI (canvas) ---------- */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10000;
 }
 
 /* ---------- UTILIDADES ---------- */
